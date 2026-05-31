@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marotoart Tattoo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = { theme: { extend: { colors: { darkBg: '#0A0A0C', panelBg: '#121215', borderGray: '#222226' } } } }
+    </script>
+</head>
+<body class="bg-neutral-950 text-zinc-100 min-h-screen flex flex-col justify-center items-center py-6 px-4 font-sans">
+
+    <!-- CABECERA SUPERIOR -->
+    <div class="text-center mb-6">
+        <h1 class="text-2xl font-bold tracking-tight text-white">marotoart_tattoo</h1>
+        <p class="text-sm text-zinc-400 mt-1">Ayelén Rojas 🌹</p>
+    </div>
+
+    <div class="relative w-[380px] h-[820px] bg-black rounded-[48px] border-[8px] border-zinc-800 overflow-hidden flex flex-col">
+        <div class="h-10 bg-darkBg px-6 pt-3 flex justify-between items-center z-40">
+            <span id="mobile-time" class="text-xs text-zinc-300">22:38</span>
+        </div>
+
+        <div class="flex-1 bg-darkBg overflow-y-auto no-scrollbar">
+            <!-- PANTALLA BIENVENIDA -->
+            <div id="screen-welcome" class="app-screen flex-1 flex flex-col justify-center p-6 space-y-8">
+                
+                <div class="w-36 h-36 mx-auto rounded-full border border-zinc-800 bg-zinc-900 flex items-center justify-center overflow-hidden shadow-2xl">
+                    <img src="logo.png" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                
+                <div class="text-center space-y-1">
+                    <h2 class="text-2xl font-bold text-white lowercase">marotoart_tattoo</h2>
+                    <p class="text-sm text-zinc-300 font-medium">Ayelén Rojas 🌹</p>
+                    <p class="text-[10px] text-zinc-500 uppercase tracking-widest pt-2">Cala D´or - Mallorca</p>
+                </div>
+
+                <div class="space-y-3">
+                    <button onclick="switchScreen('screen-client-home')" class="w-full bg-white text-black font-semibold py-3.5 rounded-xl text-sm hover:bg-zinc-200 transition">Acceder como Cliente</button>
+                    <button onclick="switchScreen('screen-admin-dashboard')" class="w-full bg-panelBg text-zinc-300 border border-borderGray py-3 rounded-xl text-xs hover:bg-zinc-900 transition">Panel de Ayelén</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NAV -->
+        <div class="bg-panelBg border-t border-borderGray py-3 flex justify-around">
+            <button onclick="switchScreen('screen-client-home')" class="text-zinc-500"><i class="fa-solid fa-calendar"></i></button>
+            <button onclick="switchScreen('screen-welcome')" class="w-10 h-10 rounded-full bg-zinc-900 -mt-5 border border-zinc-700 text-white flex items-center justify-center"><i class="fa-solid fa-anchor"></i></button>
+            <button onclick="switchScreen('screen-admin-dashboard')" class="text-zinc-500"><i class="fa-solid fa-sliders"></i></button>
+        </div>
+    </div>
+
+    <script>
+        function switchScreen(id) {
+            document.querySelectorAll('.app-screen').forEach(s => s.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
