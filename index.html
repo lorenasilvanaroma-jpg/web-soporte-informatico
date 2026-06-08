@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reparación de Ordenadores en Puertollano | Informática AC DC</title>
-    <meta name="description" content="Servicio técnico informático en Puertollano. Reparación de ordenadores y portátiles, diagnóstico gratuito y soporte a domicilio.">
+    <title>Reparación de Ordenadores y Desarrollo Web en Puertollano | Informática AC DC</title>
+    <meta name="description" content="Servicio técnico informático en Puertollano. Reparación de ordenadores, diseño de páginas web, desarrollo de aplicaciones y soporte a domicilio.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         html { scroll-behavior: smooth; }
@@ -43,12 +43,21 @@
         .aptitud-item { background: rgba(0,212,255,0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(0,212,255,0.1); }
 
         /* CARDS DESTACADAS (DIAGNÓSTICO Y RECOGIDA) */
-        .destacados-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .destacados-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-bottom: 30px; }
         .card-destacada { 
             background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(11, 15, 25, 1));
             padding: 30px; border-radius: 15px; border: 1px solid #00d4ff; text-align: center;
         }
         .card-destacada h3 { color: #00d4ff; margin-bottom: 15px; font-size: 1.6rem; }
+        
+        /* TARJETAS DE NUEVOS SERVICIOS DIGITALES */
+        .digitales-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .card-digital {
+            background: linear-gradient(145deg, rgba(11, 15, 25, 1), rgba(0, 212, 255, 0.05));
+            padding: 30px; border-radius: 15px; border: 1px solid rgba(0, 212, 255, 0.4); position: relative; overflow: hidden;
+        }
+        .card-digital h3 { color: #00d4ff; margin-bottom: 15px; font-size: 1.6rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .badge-nuevo { position: absolute; top: 15px; right: 15px; background: #e1306c; color: white; font-size: 0.7rem; font-weight: bold; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; }
 
         /* GALERÍA */
         .contenedor-fotos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
@@ -82,13 +91,27 @@
 
     <header class="hero" id="inicio">
         <h1>informática <span>ac dc</span></h1>
-        <p><strong>Lorena Rojas Maroto</strong>: Especialista en Soporte Técnico con más de 7 años de experiencia. Soluciones profesionales en Puertollano.</p>
-        <a href="https://wa.me/34605472656" class="btn-ws">Consultar Avería por WhatsApp</a>
+        <p><strong>Lorena Rojas Maroto</strong>: Especialista en Soporte Técnico, Desarrollo Web y Creación de Aplicaciones con más de 7 años de experiencia. Soluciones profesionales en Puertollano.</p>
+        <a href="https://wa.me/34605472656" class="btn-ws">Consultar Servicio por WhatsApp</a>
     </header>
 
     <section id="experiencia">
         <h2>Servicios y Experiencia</h2>
         
+        <!-- NUEVOS BOTONES/SERVICIOS DIGITALES PRIMERO -->
+        <div class="digitales-container">
+            <div class="card-digital">
+                <span class="badge-nuevo">Nuevo</span>
+                <h3>🌐 Páginas Web a Medida</h3>
+                <p>Diseño y desarrollo de páginas web corporativas, landing pages funcionales y catálogos digitales adaptados a cualquier dispositivo. Potencia la presencia online de tu negocio.</p>
+            </div>
+            <div class="card-digital">
+                <span class="badge-nuevo">Nuevo</span>
+                <h3>📱 Desarrollo de Aplicaciones</h3>
+                <p>Creación de aplicaciones web y soluciones móviles personalizadas (sistemas de gestión, reservas locales y automatización). Herramientas dinámicas para captar clientes.</p>
+            </div>
+        </div>
+
         <div class="destacados-container">
             <div class="card-destacada">
                 <h3>🔍 Diagnóstico GRATIS</h3>
@@ -101,10 +124,12 @@
         </div>
 
         <div class="perfil-container">
-            <p>Técnico con formación en <strong>Sistemas Microinformáticos y Redes</strong>. Más de 7 años garantizando el mejor funcionamiento de tus dispositivos.</p>
+            <p>Técnico con formación en <strong>Sistemas Microinformáticos y Redes</strong>. Más de 7 años garantizando la transformación digital y el mejor funcionamiento de tus dispositivos.</p>
             <div class="aptitudes-grid">
                 <div class="aptitud-item">🛠️ <strong>Hardware:</strong> Reparaciones físicas y montajes.</div>
                 <div class="aptitud-item">⚡ <strong>Rendimiento:</strong> SSD y memorias RAM.</div>
+                <div class="aptitud-item">💻 <strong>Desarrollo:</strong> Creación de webs y aplicaciones.</div>
+                <div class="aptitud-item">🚀 <strong>Optimización:</strong> Código limpio y responsive.</div>
                 <div class="aptitud-item">🛡️ <strong>Seguridad:</strong> Limpieza de virus y malware.</div>
                 <div class="aptitud-item">🖥️ <strong>Software:</strong> Windows, Office y BIOS.</div>
             </div>
