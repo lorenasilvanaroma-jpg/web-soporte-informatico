@@ -35,7 +35,32 @@
         /* SECCIONES */
         section { padding: 80px 10%; }
         h2 { font-size: 2.2rem; color: #00d4ff; text-align: center; margin-bottom: 40px; }
-        .subtitulo-categoria { color: #00d4ff; margin: 40px 0 20px; border-left: 4px solid #00d4ff; padding-left: 15px; font-size: 1.4rem; }
+        
+        /* BOTONES DE FILTRADO */
+        .filtros-galeria {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .btn-filtro {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-filtro:hover, .btn-filtro.activo {
+            background: #00d4ff;
+            color: #0b0f19;
+            border-color: #00d4ff;
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
 
         /* SOBRE MÍ */
         .perfil-container { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; border: 1px solid rgba(0,212,255,0.2); margin-bottom: 40px; }
@@ -64,10 +89,16 @@
         .foto-trabajo { 
             width: 100%; height: 220px; border-radius: 12px; overflow: hidden; 
             position: relative; background: #161e2e; border: 1px solid rgba(255,255,255,0.1);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            /* Ocultas por defecto al cargar la página */
+            display: none; opacity: 0; transform: scale(0.8);
         }
         .foto-trabajo img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .foto-trabajo:hover img { transform: scale(1.1); }
         .etiqueta { position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.8); padding: 4px 8px; font-size: 0.7rem; border-radius: 4px; color: #00d4ff; }
+
+        /* Clase explícita para mostrar los elementos activos */
+        .foto-trabajo.visible { display: block; opacity: 1; transform: scale(1); }
 
         /* CONTACTO Y FOOTER */
         .btn-ws { background: #25d366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
@@ -113,6 +144,7 @@
 
         <div class="destacados-container">
             <div class="card-destacada">
+                <span class="badge-nuevo" style="background:#00d4ff; color:#0b0f19;">Gratis</span>
                 <h3>🔍 Diagnóstico GRATIS</h3>
                 <p>Presupuesto sin compromiso. Análisis detallado de la avería sin coste para ti.</p>
             </div>
@@ -138,64 +170,61 @@
     <section class="galeria" id="trabajos">
         <h2>Galería de Trabajos</h2>
 
-        <h3 class="subtitulo-categoria">Hardware y Reparación Física</h3>
-        <div class="contenedor-fotos">
-            <div class="foto-trabajo"><img src="Hardware.jpeg"><div class="etiqueta">Hardware</div></div>
-            <div class="foto-trabajo"><img src="Cambiando pantalla rota de portatil.jpeg"><div class="etiqueta">Pantalla</div></div>
-            <div class="foto-trabajo"><img src="Cambio de batería.png"><div class="etiqueta">Batería</div></div>
-            <div class="foto-trabajo"><img src="Cambio de pantalla rota.png"><div class="etiqueta">Panel LED</div></div>
-            <div class="foto-trabajo"><img src="Camio de pantalla en portatil ASUS.jpeg"><div class="etiqueta">Asus</div></div>
-            <div class="foto-trabajo"><img src="Comprobaciones (1).jpeg"><div class="etiqueta">Tester</div></div>
-            <div class="foto-trabajo"><img src="Comprobaciones (3).jpeg"><div class="etiqueta">Voltajes</div></div>
-            <div class="foto-trabajo"><img src="Comprobaciones (4).jpeg"><div class="etiqueta">Diagnóstico</div></div>
-            <div class="foto-trabajo"><img src="Desmontaje de pantalla portatil.jpeg"><div class="etiqueta">Desmontaje</div></div>
-            <div class="foto-trabajo"><img src="Desmontaje para poner dispador de disco duro NVMe.png"><div class="etiqueta">NVMe</div></div>
-            <div class="foto-trabajo"><img src="Limpieza y ca,nio de pasta térmica.png"><div class="etiqueta">Pasta Térmica</div></div>
-            <div class="foto-trabajo"><img src="Limpieza y cambio de pasta térmica de PS4 Slim, que no encendía.jpeg"><div class="etiqueta">PS4</div></div>
-            <div class="foto-trabajo"><img src="Montaje desde cero en PC de escritorio.jpeg"><div class="etiqueta">Setup</div></div>
-            <div class="foto-trabajo"><img src="Pantalla nueva.jpeg"><div class="etiqueta">Reparado</div></div>
-            <div class="foto-trabajo"><img src="Pruebas y diagnosticos.jpeg"><div class="etiqueta">Test</div></div>
-            <div class="foto-trabajo"><img src="Quitando pantalla rota de ASUS.jpeg"><div class="etiqueta">Hardware</div></div>
-            <div class="foto-trabajo"><img src="Reparacion, cambio y mantenimiento de hardware.jpeg"><div class="etiqueta">Técnico</div></div>
-            <div class="foto-trabajo"><img src="Reparaciones-Desmontajes.png"><div class="etiqueta">Taller</div></div>
-            <div class="foto-trabajo"><img src="Complementos a gusto en montajes desde cero en ordenador de escritorio.jpeg"><div class="etiqueta">PC Gaming</div></div>
+        <div class="filtros-galeria">
+            <button class="btn-filtro" data-target="hardware">Hardware y Taller</button>
+            <button class="btn-filtro" data-target="clonacion">Clonación y Copias</button>
+            <button class="btn-filtro" data-target="virus">Limpieza de Virus</button>
+            <button class="btn-filtro" data-target="software">Software y Web</button>
         </div>
 
-        <h3 class="subtitulo-categoria">Clonación y Copias de Seguridad</h3>
         <div class="contenedor-fotos">
-            <div class="foto-trabajo"><img src="Clonación de disco duro.png"><div class="etiqueta">Clonación</div></div>
-            <div class="foto-trabajo"><img src="Clonacion.png"><div class="etiqueta">Backup</div></div>
-            <div class="foto-trabajo"><img src="Cambio de disco duro, clonado a un SSD.png"><div class="etiqueta">Migración</div></div>
-            <div class="foto-trabajo"><img src="Cambios de discos duros.png"><div class="etiqueta">Discos</div></div>
-            <div class="foto-trabajo"><img src="Sustitución de discos duros and memorias RAM.jpeg"><div class="etiqueta">RAM/SSD</div></div>
-            <div class="foto-trabajo"><img src="Cambio de Disco duro y memoria RAM.jpeg"><div class="etiqueta">Ampliación</div></div>
-            <div class="foto-trabajo"><img src="Rescatando datos.png"><div class="etiqueta">Recuperación</div></div>
-        </div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Hardware.jpeg"><div class="etiqueta">Hardware</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Cambiando pantalla rota de portatil.jpeg"><div class="etiqueta">Pantalla</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Cambio de batería.png"><div class="etiqueta">Batería</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Cambio de pantalla rota.png"><div class="etiqueta">Panel LED</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Camio de pantalla en portatil ASUS.jpeg"><div class="etiqueta">Asus</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Comprobaciones (1).jpeg"><div class="etiqueta">Tester</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Comprobaciones (3).jpeg"><div class="etiqueta">Voltajes</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Comprobaciones (4).jpeg"><div class="etiqueta">Diagnóstico</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Desmontaje de pantalla portatil.jpeg"><div class="etiqueta">Desmontaje</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Desmontaje para poner dispador de disco duro NVMe.png"><div class="etiqueta">NVMe</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Limpieza y ca,nio de pasta térmica.png"><div class="etiqueta">Pasta Térmica</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Limpieza y cambio de pasta térmica de PS4 Slim, que no encendía.jpeg"><div class="etiqueta">PS4</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Montaje desde cero en PC de escritorio.jpeg"><div class="etiqueta">Setup</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Pantalla nueva.jpeg"><div class="etiqueta">Reparado</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Pruebas y diagnosticos.jpeg"><div class="etiqueta">Test</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Quitando pantalla rota de ASUS.jpeg"><div class="etiqueta">Hardware</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Reparacion, cambio y mantenimiento de hardware.jpeg"><div class="etiqueta">Técnico</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Reparaciones-Desmontajes.png"><div class="etiqueta">Taller</div></div>
+            <div class="foto-trabajo" data-category="hardware"><img src="Complementos a gusto en montajes desde cero en ordenador de escritorio.jpeg"><div class="etiqueta">PC Gaming</div></div>
 
-        <h3 class="subtitulo-categoria">Eliminación de Virus</h3>
-        <div class="contenedor-fotos">
-            <div class="foto-trabajo"><img src="Eliminación de virus.jpeg"><div class="etiqueta">Escaneo</div></div>
-            <div class="foto-trabajo"><img src="Eliminación de virus2.jpeg"><div class="etiqueta">Limpieza</div></div>
-            <div class="foto-trabajo"><img src="Eliminación de virus 3.jpeg"><div class="etiqueta">Virus</div></div>
-            <div class="foto-trabajo"><img src="Eliminación de virus4.jpeg"><div class="etiqueta">Protección</div></div>
-            <div class="foto-trabajo"><img src="Eliminación de virus5.jpeg"><div class="etiqueta">Seguridad</div></div>
-        </div>
+            <div class="foto-trabajo" data-category="clonacion"><img src="Clonación de disco duro.png"><div class="etiqueta">Clonación</div></div>
+            <div class="foto-trabajo" data-category="clonacion"><img src="Clonacion.png"><div class="etiqueta">Backup</div></div>
+            <div class="foto-trabajo" data-category="clonacion"><img src="Cambio de disco duro, clonado a un SSD.png"><div class="etiqueta">Migración</div></div>
+            <div class="foto-trabajo" data-category="clonacion"><img src="Cambios de discos duros.png"><div class="etiqueta">Discos</div></div>
+            <div class="foto-trabajo" data-category="clonacion"><img src="Sustitución de discos duros and memorias RAM.jpeg"><div class="etiqueta">RAM/SSD</div></div>
+            <div class="foto-trabajo" data-category="clonacion"><img src="Cambio de Disco duro y memoria RAM.jpeg"><div class="etiqueta">Ampliación</div></div>
+            <div class="foto-trabajo" data-category="clonacion"><img src="Rescatando datos.png"><div class="etiqueta">Recuperación</div></div>
 
-        <h3 class="subtitulo-categoria">Software y Sistemas</h3>
-        <div class="contenedor-fotos">
-            <div class="foto-trabajo"><img src="Instalacion de Office.jpeg"><div class="etiqueta">Office</div></div>
-            <div class="foto-trabajo"><img src="Instalación de Office.PNG"><div class="etiqueta">Software</div></div>
-            <div class="foto-trabajo"><img src="Activaciones en Office y Windows.PNG"><div class="etiqueta">Licencias</div></div>
-            <div class="foto-trabajo"><img src="BIOS.png"><div class="etiqueta">Configuración</div></div>
-            <div class="foto-trabajo"><img src="Configuración de BIOS.jpeg"><div class="etiqueta">Ajustes</div></div>
-            <div class="foto-trabajo"><img src="Configuraciones de BIOS.png"><div class="etiqueta">Sistemas</div></div>
-            <div class="foto-trabajo"><img src="Sistema operativo instalando.png"><div class="etiqueta">Windows</div></div>
-            <div class="foto-trabajo"><img src="Test.PNG"><div class="etiqueta">Check</div></div>
-            <div class="foto-trabajo"><img src="Test 1.PNG"><div class="etiqueta">Check 2</div></div>
-            <div class="foto-trabajo"><img src="Test 2.PNG"><div class="etiqueta">Check 3</div></div>
-            <div class="foto-trabajo"><img src="Instalaciones en un centro formativo.png"><div class="etiqueta">Educación</div></div>
-            <div class="foto-trabajo"><img src="Mantenimiento de hardware e instalaciones de software en una clase.png"><div class="etiqueta">Clases</div></div>
-            <div class="foto-trabajo"><img src="Programación, diseños de páginas web.jpeg"><div class="etiqueta">Web</div></div>
+            <div class="foto-trabajo" data-category="virus"><img src="Eliminación de virus.jpeg"><div class="etiqueta">Escaneo</div></div>
+            <div class="foto-trabajo" data-category="virus"><img src="Eliminación de virus2.jpeg"><div class="etiqueta">Limpieza</div></div>
+            <div class="foto-trabajo" data-category="virus"><img src="Eliminación de virus 3.jpeg"><div class="etiqueta">Virus</div></div>
+            <div class="foto-trabajo" data-category="virus"><img src="Eliminación de virus4.jpeg"><div class="etiqueta">Protección</div></div>
+            <div class="foto-trabajo" data-category="virus"><img src="Eliminación de virus5.jpeg"><div class="etiqueta">Seguridad</div></div>
+
+            <div class="foto-trabajo" data-category="software"><img src="Instalacion de Office.jpeg"><div class="etiqueta">Office</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Instalación de Office.PNG"><div class="etiqueta">Software</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Activaciones en Office y Windows.PNG"><div class="etiqueta">Licencias</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="BIOS.png"><div class="etiqueta">Configuración</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Configuración de BIOS.jpeg"><div class="etiqueta">Ajustes</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Configuraciones de BIOS.png"><div class="etiqueta">Sistemas</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Sistema operativo instalando.png"><div class="etiqueta">Windows</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Test.PNG"><div class="etiqueta">Check</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Test 1.PNG"><div class="etiqueta">Check 2</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Test 2.PNG"><div class="etiqueta">Check 3</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Instalaciones en un centro formativo.png"><div class="etiqueta">Educación</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Mantenimiento de hardware e instalaciones de software en una clase.png"><div class="etiqueta">Clases</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Programación, diseños de páginas web.jpeg"><div class="etiqueta">Web</div></div>
         </div>
     </section>
 
@@ -209,6 +238,36 @@
             <a href="https://www.instagram.com/reels/DXWUmmhjVFv/" target="_blank" style="color: #e1306c; text-decoration: none; font-weight: bold;">Instagram</a>
         </div>
     </footer>
+
+    <script>
+        document.querySelectorAll('.btn-filtro').forEach(boton => {
+            boton.addEventListener('click', () => {
+                // Quitar la clase activa de cualquier botón anterior si existiera alguno pulsado
+                const botonActivoPrevio = document.querySelector('.btn-filtro.activo');
+                if (botonActivoPrevio) {
+                    botonActivoPrevio.classList.remove('activo');
+                }
+                
+                // Activar el botón actual
+                boton.classList.add('activo');
+                
+                // Filtrar las imágenes
+                const categoriaFiltro = boton.getAttribute('data-target');
+                const tarjetasFotos = document.querySelectorAll('.foto-trabajo');
+                
+                tarjetasFotos.forEach(tarjeta => {
+                    const categoriaTarjeta = tarjeta.getAttribute('data-category');
+                    
+                    // Solo se muestra si coincide exactamente con el botón pulsado
+                    if (categoriaTarjeta === categoriaFiltro) {
+                        tarjeta.classList.add('visible');
+                    } else {
+                        tarjeta.classList.remove('visible');
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
