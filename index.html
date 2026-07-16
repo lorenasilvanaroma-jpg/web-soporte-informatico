@@ -24,7 +24,7 @@
         /* HERO */
         .hero {
             height: 80vh;
-            background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.8)), url('logo.jpg');
+            background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.8)), url('fondo.png');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;
         }
@@ -90,14 +90,12 @@
             width: 100%; height: 220px; border-radius: 12px; overflow: hidden; 
             position: relative; background: #161e2e; border: 1px solid rgba(255,255,255,0.1);
             transition: opacity 0.4s ease, transform 0.4s ease;
-            /* Ocultas por defecto al cargar la página */
             display: none; opacity: 0; transform: scale(0.8);
         }
         .foto-trabajo img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .foto-trabajo:hover img { transform: scale(1.1); }
         .etiqueta { position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.8); padding: 4px 8px; font-size: 0.7rem; border-radius: 4px; color: #00d4ff; }
 
-        /* Clase explícita para mostrar los elementos activos */
         .foto-trabajo.visible { display: block; opacity: 1; transform: scale(1); }
 
         /* CONTACTO Y FOOTER */
@@ -116,7 +114,7 @@
             <a href="#inicio">Inicio</a>
             <a href="#experiencia">Trayectoria</a>
             <a href="#trabajos">Galería</a>
-            <a href="https://www.instagram.com/reels/DXWUmmhjVFv/" target="_blank" class="btn-ig-nav">Instagram</a>
+            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" class="btn-ig-nav">Instagram</a>
         </div>
     </nav>
 
@@ -235,30 +233,22 @@
             <a href="https://wa.me/34605472656" class="btn-ws">WhatsApp: 605 47 26 56</a>
         </div>
         <div style="margin-top: 20px;">
-            <a href="https://www.instagram.com/reels/DXWUmmhjVFv/" target="_blank" style="color: #e1306c; text-decoration: none; font-weight: bold;">Instagram</a>
+            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" style="color: #e1306c; text-decoration: none; font-weight: bold;">Instagram</a>
         </div>
     </footer>
 
     <script>
         document.querySelectorAll('.btn-filtro').forEach(boton => {
             boton.addEventListener('click', () => {
-                // Quitar la clase activa de cualquier botón anterior si existiera alguno pulsado
                 const botonActivoPrevio = document.querySelector('.btn-filtro.activo');
                 if (botonActivoPrevio) {
                     botonActivoPrevio.classList.remove('activo');
                 }
-                
-                // Activar el botón actual
                 boton.classList.add('activo');
-                
-                // Filtrar las imágenes
                 const categoriaFiltro = boton.getAttribute('data-target');
                 const tarjetasFotos = document.querySelectorAll('.foto-trabajo');
-                
                 tarjetasFotos.forEach(tarjeta => {
                     const categoriaTarjeta = tarjeta.getAttribute('data-category');
-                    
-                    // Solo se muestra si coincide exactamente con el botón pulsado
                     if (categoriaTarjeta === categoriaFiltro) {
                         tarjeta.classList.add('visible');
                     } else {
@@ -268,6 +258,5 @@
             });
         });
     </script>
-
 </body>
 </html>
