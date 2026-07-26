@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RTWZ5DRNV6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RTWZ5DRNV6');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reparación de Ordenadores y Desarrollo Web en Puertollano | Informática AC DC</title>
     <meta name="description" content="Servicio técnico informático en Puertollano. Reparación de ordenadores, diseño de páginas web, desarrollo de aplicaciones y soporte a domicilio.">
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         html { scroll-behavior: smooth; }
@@ -12,9 +22,17 @@
 
         /* NAVEGACIÓN */
         nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 10%; background: rgba(11, 15, 25, 0.95);
-            position: fixed; width: 100%; z-index: 1000; border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            padding: 15px 10%; 
+            background: rgba(11, 15, 25, 0.95);
+            position: fixed; 
+            width: 100%; 
+            top: 0;
+            left: 0;
+            z-index: 1000; 
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
         }
         .logo { font-size: 22px; font-weight: bold; color: #00d4ff; text-transform: lowercase; }
         .menu a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.85rem; text-transform: uppercase; transition: 0.3s; }
@@ -23,10 +41,18 @@
 
         /* HERO */
         .hero {
-            height: 80vh;
+            min-height: 80vh;
+            padding-top: 100px;
             background: linear-gradient(rgba(11, 15, 25, 0.8), rgba(11, 15, 25, 0.8)), url('fondo.png');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;
+            background-size: cover; 
+            background-position: center;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            padding-left: 20px;
+            padding-right: 20px;
         }
         .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
         .hero h1 span { color: #00d4ff; }
@@ -67,7 +93,7 @@
         .aptitudes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
         .aptitud-item { background: rgba(0,212,255,0.1); padding: 15px; border-radius: 10px; border: 1px solid rgba(0,212,255,0.1); }
 
-        /* CARDS DESTACADAS (DIAGNÓSTICO Y RECOGIDA) */
+        /* CARDS DESTACADAS */
         .destacados-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-bottom: 30px; }
         .card-destacada { 
             background: linear-gradient(145deg, rgba(0, 212, 255, 0.1), rgba(11, 15, 25, 1));
@@ -75,7 +101,7 @@
         }
         .card-destacada h3 { color: #00d4ff; margin-bottom: 15px; font-size: 1.6rem; }
         
-        /* TARJETAS DE NUEVOS SERVICIOS DIGITALES */
+        /* TARJETAS DE SERVICIOS DIGITALES */
         .digitales-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
         .card-digital {
             background: linear-gradient(145deg, rgba(11, 15, 25, 1), rgba(0, 212, 255, 0.05));
@@ -85,7 +111,7 @@
         .badge-nuevo { position: absolute; top: 15px; right: 15px; background: #e1306c; color: white; font-size: 0.7rem; font-weight: bold; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; }
 
         /* GALERÍA */
-        .contenedor-fotos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .contenedor-fotos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; min-height: 50px; }
         .foto-trabajo { 
             width: 100%; height: 220px; border-radius: 12px; overflow: hidden; 
             position: relative; background: #161e2e; border: 1px solid rgba(255,255,255,0.1);
@@ -97,6 +123,9 @@
         .etiqueta { position: absolute; bottom: 8px; left: 8px; background: rgba(0,0,0,0.8); padding: 4px 8px; font-size: 0.7rem; border-radius: 4px; color: #00d4ff; }
 
         .foto-trabajo.visible { display: block; opacity: 1; transform: scale(1); }
+
+        .foto-trabajo[data-category="web-apps"] { height: 450px; }
+        .foto-trabajo[data-category="web-apps"] img { object-fit: contain; background: #161e2e; }
 
         /* CONTACTO Y FOOTER */
         .btn-ws { background: #25d366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
@@ -114,7 +143,7 @@
             <a href="#inicio">Inicio</a>
             <a href="#experiencia">Trayectoria</a>
             <a href="#trabajos">Galería</a>
-            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" class="btn-ig-nav">Instagram</a>
+            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" rel="noopener noreferrer" class="btn-ig-nav">Instagram</a>
         </div>
     </nav>
 
@@ -172,7 +201,8 @@
             <button class="btn-filtro" data-target="hardware">Hardware y Taller</button>
             <button class="btn-filtro" data-target="clonacion">Clonación y Copias</button>
             <button class="btn-filtro" data-target="virus">Limpieza de Virus</button>
-            <button class="btn-filtro" data-target="software">Software y Web</button>
+            <button class="btn-filtro" data-target="software">Software</button>
+            <button class="btn-filtro" data-target="web-apps">Diseños de Webs y Apps</button>
         </div>
 
         <div class="contenedor-fotos">
@@ -221,8 +251,11 @@
             <div class="foto-trabajo" data-category="software"><img src="Test 1.PNG"><div class="etiqueta">Check 2</div></div>
             <div class="foto-trabajo" data-category="software"><img src="Test 2.PNG"><div class="etiqueta">Check 3</div></div>
             <div class="foto-trabajo" data-category="software"><img src="Instalaciones en un centro formativo.png"><div class="etiqueta">Educación</div></div>
-            <div class="foto-trabajo" data-category="software"><img src="Mantenimiento de hardware e instalaciones de software en una clase.png"><div class="etiqueta">Clases</div></div>
-            <div class="foto-trabajo" data-category="software"><img src="Programación, diseños de páginas web.jpeg"><div class="etiqueta">Web</div></div>
+            <div class="foto-trabajo" data-category="software"><img src="Mantenimiento de hardware e installations de software en una clase.png"><div class="etiqueta">Clases</div></div>
+
+            <div class="foto-trabajo" data-category="web-apps"><img src="mesa-trabajo.jpeg"><div class="etiqueta">Desarrollo Web</div></div>
+            <div class="foto-trabajo" data-category="web-apps"><img src="codigo.pantalla.jpeg"><div class="etiqueta">Código Fuente</div></div>
+            <div class="foto-trabajo" data-category="web-apps"><img src="app-tatto.png"><div class="etiqueta">App Marotoart</div></div>
         </div>
     </section>
 
@@ -233,28 +266,57 @@
             <a href="https://wa.me/34605472656" class="btn-ws">WhatsApp: 605 47 26 56</a>
         </div>
         <div style="margin-top: 20px;">
-            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" style="color: #e1306c; text-decoration: none; font-weight: bold;">Instagram</a>
+            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" rel="noopener noreferrer" style="color: #e1306c; text-decoration: none; font-weight: bold;">Instagram</a>
         </div>
     </footer>
 
     <script>
-        document.querySelectorAll('.btn-filtro').forEach(boton => {
-            boton.addEventListener('click', () => {
-                const botonActivoPrevio = document.querySelector('.btn-filtro.activo');
-                if (botonActivoPrevio) {
-                    botonActivoPrevio.classList.remove('activo');
+        let categoriaFijada = null;
+
+        function mostrarCategoria(categoria) {
+            const tarjetasFotos = document.querySelectorAll('.foto-trabajo');
+            tarjetasFotos.forEach(tarjeta => {
+                if (tarjeta.getAttribute('data-category') === categoria) {
+                    tarjeta.classList.add('visible');
+                } else {
+                    tarjeta.classList.remove('visible');
                 }
-                boton.classList.add('activo');
-                const categoriaFiltro = boton.getAttribute('data-target');
-                const tarjetasFotos = document.querySelectorAll('.foto-trabajo');
-                tarjetasFotos.forEach(tarjeta => {
-                    const categoriaTarjeta = tarjeta.getAttribute('data-category');
-                    if (categoriaTarjeta === categoriaFiltro) {
-                        tarjeta.classList.add('visible');
-                    } else {
-                        tarjeta.classList.remove('visible');
-                    }
-                });
+            });
+        }
+
+        function ocultarTodas() {
+            const tarjetasFotos = document.querySelectorAll('.foto-trabajo');
+            tarjetasFotos.forEach(tarjeta => {
+                tarjeta.classList.remove('visible');
+            });
+        }
+
+        document.querySelectorAll('.btn-filtro').forEach(boton => {
+            const categoria = boton.getAttribute('data-target');
+
+            boton.addEventListener('mouseenter', () => {
+                mostrarCategoria(categoria);
+            });
+
+            boton.addEventListener('mouseleave', () => {
+                if (categoriaFijada) {
+                    mostrarCategoria(categoriaFijada);
+                } else {
+                    ocultarTodas();
+                }
+            });
+
+            boton.addEventListener('click', () => {
+                if (categoriaFijada === categoria) {
+                    categoriaFijada = null;
+                    boton.classList.remove('activo');
+                    ocultarTodas();
+                } else {
+                    document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('activo'));
+                    boton.classList.add('activo');
+                    categoriaFijada = categoria;
+                    mostrarCategoria(categoria);
+                }
             });
         });
     </script>
