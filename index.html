@@ -135,6 +135,22 @@
         .foto-trabajo[data-category="web-apps"] { height: 450px; }
         .foto-trabajo[data-category="web-apps"] img { object-fit: contain; background: #161e2e; }
 
+        /* ESTILOS UBICACIONES Y MAPAS */
+        .mapas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .mapa-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 212, 255, 0.2); border-radius: 15px; padding: 20px; text-align: center; }
+        .mapa-card h3 { color: #00d4ff; margin-bottom: 10px; }
+        .mapa-card p { color: #d1d5db; margin-bottom: 15px; font-size: 0.95rem; }
+        .mapa-card iframe { width: 100%; height: 250px; border: 0; border-radius: 10px; }
+
+        /* ESTILOS FORMULARIO FORMSPREE */
+        .form-container { max-width: 600px; margin: 0 auto 40px auto; background: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 15px; border: 1px solid rgba(0, 212, 255, 0.2); }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; color: #00d4ff; font-weight: 600; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #161e2e; border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 8px; color: white; font-size: 1rem; outline: none; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #00d4ff; box-shadow: 0 0 10px rgba(0, 212, 255, 0.3); }
+        .btn-submit { background: #00d4ff; color: #0b0f19; padding: 12px 30px; border: none; border-radius: 30px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s; width: 100%; }
+        .btn-submit:hover { background: #0099cc; box-shadow: 0 0 15px rgba(0, 212, 255, 0.5); }
+
         /* CONTACTO Y FOOTER */
         .btn-ws { background: #25d366; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
         .btn-ws:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
@@ -155,6 +171,8 @@
             <a href="#inicio">Inicio</a>
             <a href="#experiencia">Trayectoria</a>
             <a href="#trabajos">Galería</a>
+            <a href="#ubicaciones">Ubicaciones</a>
+            <a href="#contacto">Contacto</a>
             <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" rel="noopener noreferrer" class="btn-ig-nav">Instagram</a>
         </div>
     </nav>
@@ -271,14 +289,54 @@
         </div>
     </section>
 
+    <!-- MAPAS Y DIRECCIONES -->
+    <section id="ubicaciones">
+        <h2>📍 Puntos de Atención y Taller</h2>
+        <div class="mapas-grid">
+            <div class="mapa-card">
+                <h3>Puertollano</h3>
+                <p>Calle Santísimo Nº8 - 1ºD, Puertollano</p>
+                <iframe src="https://maps.google.com/maps?q=Calle%20Sant%C3%ADsimo%208,%20Puertollano&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="mapa-card">
+                <h3>Almodóvar del Campo</h3>
+                <p>Calle Cristo Nº79, Almodóvar del Campo</p>
+                <iframe src="https://maps.google.com/maps?q=Calle%20Cristo%2079,%20Almod%C3%B3var%20del%20Campo&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y FORMSPREE -->
     <footer id="contacto">
         <h2>¿Hablamos?</h2>
-        <p>Tú Técnico de confianza</p>
+        <p style="margin-bottom: 25px;">Tú Técnico de confianza</p>
+
+        <!-- FORMULARIO FORMSPREE -->
+        <div class="form-container">
+            <form action="https://formspree.io/f/mqpzljpv" method="POST">
+                <input type="hidden" name="_replyto" value="consultas.acdc@outlook.es">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Escribe tu consulta aquí..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar consulta</button>
+            </form>
+        </div>
+
+        <!-- REDES Y TELÉFONO -->
         <div style="margin-top: 30px;">
             <a href="https://wa.me/34605472656" class="btn-ws">WhatsApp o llamadas: 605 47 26 56</a>
         </div>
         <div style="margin-top: 20px;">
-            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" rel="noopener noreferrer" style="color: #e1306c; text-decoration: none; font-weight: bold;">Instagram</a>
+            <a href="https://www.instagram.com/informatica_ac_dc/" target="_blank" rel="noopener noreferrer" style="color: #e1306c; text-decoration: none; font-weight: bold; font-size: 1.1rem;">Instagram</a>
         </div>
     </footer>
 
